@@ -25,23 +25,20 @@
 
 {if $status == 'ok'}
     
-      <h2 style="text-align: center;"> {l s='Su orden en %s ya ha sido generada y espera por su pago' sprintf=[$shop_name] d='Modules.Wirepayment.Shop'}</h2> 
-      <p>{l s='Escanee el siguiente código desde la opcion pagar de GourmetPay:' d='Modules.Wirepayment.Shop'}</p>
+      <h2 style="text-align: center;">Sera redirigido a bonos gourmet.</h2> 
 
-
-    <p style="text-align: center;">
-      <img src="{$imagesrc}" alt="" width="300px" height="300px">
-    </p>
-    {include file='module:gourmetpay/views/templates/hook/_partials/payment_infos.tpl'}
-
-      <h2 class="text-center">O paga desde la web...</h2>
-      <form action="https://bonosgourmet.com/pagar/" method="POST">
+      <form action="https://bonosgourmet.com/pagar/" method="POST" id="theForm">
         <input type="hidden" name="email" value="{$gourmetpayOwner}">
         <input type="hidden" name="reference" value="{$reference}">
         <input type="hidden" name="amount" value="{$total_unformated}">
         <p class="text-center"><input type="submit" value="Pagar en la Web"  class="btn btn-primary"></p>
       </form>
-      
+      <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) { 
+          document.getElementById('theForm').submit();
+        });
+        
+      </script>
 
     <p>
       {l s='Si tiene alguna duda contacte al [1]equipo de soporte[/1].' d='Modules.Wirepayment.Shop' sprintf=['[1]' => "<a href='{$contact_url}'>", '[/1]' => '</a>']}

@@ -25,8 +25,7 @@
 
 <section>
   <p>
-Al hacer clic en continuar podrá escanear el codigo QR desde su aplicacion GourmetPay y enviar el monto del pedido.
+   Paga utilizando tu saldo de Bonos Gourmet.
   </p>
-
 
 </section>
